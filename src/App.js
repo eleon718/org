@@ -5,6 +5,7 @@ import Header from "./componentes/Header/Header.js";
 function App() {
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hola mundo con react</p>
