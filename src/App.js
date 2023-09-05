@@ -46,7 +46,6 @@ function App() {
       puesto: "Dev FullStack",
     },
   ]);
-
   const [equipos, actualizarEquipos] = useState([
     {
       id: uuid(),
@@ -92,8 +91,23 @@ function App() {
     },
   ]);
 
-  const eliminarColaborador = () => {
-    console.log("Eliminar colaborador");
+  const eliminarColaborador = (id) => {
+    console.log("Eliminar colaborador", id);
+    const nuevosColaboradores = colaboradores.filter(
+      (colaborador) => colaborador.id !== id
+    );
+    actualizarColaboradores(nuevosColaboradores);
+  };
+
+  const actualizarColor = (color, id) => {
+    console.log("Actulizar", color, id);
+    const equiposActualizados = equipos.map((equipo) => {
+      if (equipo.id === id) {
+        equipo.colorPrimario = color;
+      }
+      return equipo;
+    });
+    actualizarEquipos(equiposActualizados);
   };
 
   const cambiarMostrar = () => {
@@ -126,6 +140,7 @@ function App() {
             (colaborador) => colaborador.equipo === equipo.titulo
           )}
           eliminarColaborador={eliminarColaborador}
+          actualizarColor={actualizarColor}
         />
       ))}
 
