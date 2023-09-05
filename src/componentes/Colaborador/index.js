@@ -1,10 +1,12 @@
 import "./Colaborador.css";
+import { RiDeleteBin2Fill } from "react-icons/ri";
 
 const Colaborador = (props) => {
   const { nombre, puesto, foto, equipo } = props.datos;
-  const { colorPrimario } = props;
+  const { colorPrimario, eliminarColaborador } = props;
   return (
     <div className="colaborador">
+      <RiDeleteBin2Fill className="eliminar" onClick={eliminarColaborador} />
       <div className="encabezado" style={{ backgroundColor: colorPrimario }}>
         <img src={foto} alt="foto del colaborador" />
       </div>
